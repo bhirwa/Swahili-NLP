@@ -2,7 +2,7 @@ name: Swahili-NLP
 on: [push]
 jobs:
   run:
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest]
     # optionally use a convenient Ubuntu LTS + CUDA + DVC + CML image
     # container: docker://iterativeai/cml:0-dvc2-base1-gpu
     # container: docker://ghcr.io/iterative/cml:0-dvc2-base1-gpu
@@ -19,7 +19,8 @@ jobs:
       - name: acoustic model
         run: |
           # Your ML workflow goes here
-          python acoustic.py
+          # pip install -r requirements.txt
+          # python acoustic.py
       - name: Write CML report
         env:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
